@@ -1,3 +1,6 @@
+<?php
+  $_SESSION['username'] = 'Admin';
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -48,7 +51,9 @@
 						<p>This is a paragraph</p>
 					</a>
 				</div>
-				<div class="gallery-upload">
+				<?php
+				if (isset($_SESSION['username'])) {
+					echo '<div class="gallery-upload">
 					<form action="includes/gallery-upload.inc.php" method="POST" enctype="multipart/form-data">
 						<input type="text" name="filename" placeholder="File name...">
 						<input type="text" name="filetitle" placeholder="Image title...">
@@ -56,7 +61,9 @@
 						<input type="file" name="file">
 						<button type="submit" name="submit">UPLOAD</button>
 					</form>
-				</div>
+				</div>';
+				}
+				?>
 			</div>
 		</section>
 	</main>
